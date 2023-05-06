@@ -39,8 +39,7 @@ public static class Interval {
 
             /*We start with 1 and not 0 index because at each iteration we compare i with i-1. If i-1 overlaps i, we create a new merged
             interval and move on. Only when i-1 does not overlap i, we place i-1(which might be merged with previous intervals) into the
-            res ArrayList. If we reach the end of the iteration while still merging(if i==n), we come out of the loop, and place the last
-            merged interval into the res ArrayList*/
+            res ArrayList. At the end, we come out of the loop, and place the last merged interval into the res ArrayList*/
 
             int currStart=intervals.get(i).start;
             int currEnd=intervals.get(i).end;
@@ -58,6 +57,7 @@ public static class Interval {
             lastEnd=currEnd;
 
         }//for
+
         if(i==n){
             res.add(new Interval(lastStart, lastEnd));
         }

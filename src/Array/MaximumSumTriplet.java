@@ -7,7 +7,7 @@ public class MaximumSumTriplet {
         int n=A.length;
 
         /*The idea is to find, for each index, max element to its right which is greater than it, and the max element to its left
-        * which is smaller than it. Then while calculating the sum of each index, check if the maxToRightArray>a[i]*/
+        * which is smaller than it. Then while calculating the sum of each index, check if the maxToRightArray>A[i]*/
 
         //for each element i, right max can be obtained through a maxToRightArray array, where maxToRightArray[i] is the max element in (i+1)
         // to (n-1). This needs extra effort, as you later need to check if the maxToRightArray[i]>A[i]

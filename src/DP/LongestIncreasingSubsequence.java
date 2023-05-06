@@ -8,7 +8,7 @@ public class LongestIncreasingSubsequence {
 
         Brute complexity: For each element, we can either take or not take it, so we have 2^n choices of subsequences.
         Then for each of those 2^n subsequences, you would iterate to check if that is a strictly increasing subsequence,
-        and if so, update the res globalMax. Sio complexity will be n*(2^n).
+        and if so, update the res globalMax. So complexity will be n*(2^n).
 
         fn(i) = max length among all fn(j), where fn(j) can be fn(0) ....fn(i-1),
         AND also A[j]<A[i]. Add 1 to that.

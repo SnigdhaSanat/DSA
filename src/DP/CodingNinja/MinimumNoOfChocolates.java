@@ -172,7 +172,7 @@ public class MinimumNoOfChocolates {
     }//getMin2
 
     public static void main(String[] args) {
-        int[] arr=new int[]{1,2,4 };
+        int[] arr=new int[]{8,7,5};
         int res=MinimumNoOfChocolates.getMin2(arr, arr.length);
         System.out.println(res);
     }//main

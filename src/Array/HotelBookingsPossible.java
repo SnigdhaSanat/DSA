@@ -19,7 +19,7 @@ public class HotelBookingsPossible {
         boolean res=true;
 
         while(i<n && j<n){
-            if(arrive.get(i)<depart.get(j)){
+            if(arrive.get(i)<=depart.get(j)){
                 roomCount+=1;
                 i+=1;
             }// if

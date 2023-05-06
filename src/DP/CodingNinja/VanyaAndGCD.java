@@ -42,8 +42,8 @@ public class VanyaAndGCD {
 
         //memo[i][j] is the number of subsequences with GCD value i=GCD, ending at arr[j]
         int[][] memo=new int[101][n];
-        //Base case is the sequence {arr[0]}. This has GCD=arr[0]
 
+        //Base case is the sequence {arr[0]}. This has GCD=arr[0]
         memo[arr[0]][0]=1;//Means with a sequence of only arr[0], there is only 1 subseq ending at j=arr[0], and with i=GCD=itself. Rest all is 0 by default
 
 
@@ -51,6 +51,7 @@ public class VanyaAndGCD {
         for(int i=1;i<n;i++){
             for(int j=i-1;j>=0;j--){
                 //i and j are the wrt the arr, not the memo
+
                 if(arr[j]<arr[i]){
                     if(gcd(arr[i],arr[j])==1){
                     //if the GCD is 1, in this case memo[1][i] will be sum of memo[gcdVal][j], where gcd is from 1 to 100.

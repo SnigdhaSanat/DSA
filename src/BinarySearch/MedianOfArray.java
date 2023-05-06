@@ -47,7 +47,7 @@ End:
     left partitions combined.*/
 
         while(left<=right){
-            int aPartition=(left+right)/2;//basically how many elements on the right, or where array a has to be partitioned. Ranges from 0 to m.
+            int aPartition=(left+right)/2;//basically where array a has to be partitioned. Ranges from 0 to m.
 
             //aPartition+bPartition together has to be (m+n+1)/2
             int bPartition=(m+n+1)/2-aPartition;//This satisfies condition 1

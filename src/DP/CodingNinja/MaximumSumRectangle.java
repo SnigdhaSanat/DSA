@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //https://classroom.codingninjas.com/app/classroom/me/567/content/9694/offering/73046/problem/1705
 public class MaximumSumRectangle {
-/*Fix left and right, which will have m combinations each. So we will end up with total m*m combinations. In a fixed
+/**Fix left and right, which will have m combinations each. So we will end up with total m*m combinations. In a fixed
 * left and right, we now need to find the best top and bottom. Find the sum of each row from first to last row, within the fixed
 * left and right boundaries. Take those sums as candidates for Kadane's algorithm, and find the best possible contiguous sub-array
 * with max sum. This makes the complexity O(m*m*n), where last n comes from Kadane's algo. That is for each of the m*m combos of L and R

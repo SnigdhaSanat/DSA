@@ -27,7 +27,7 @@ so that 1st row and columns can be filled. So strings become: A:"0abbcdgf" and B
 * f|0| | | | | | | |
 *
 Now keep on filling the values, row wise and then col wise. For any i and j,
-if A[i] and B[j] are NOT same, it means they do not contribute to the result. So take the max from res[i-1,j] ans
+if A[i] and B[j] are NOT same, it means they do not contribute to the result. So take the max from res[i-1,j] and
 res[i,j-1]. But if they are same, then you can't do this, as that will lead to a suboptimal answer. A[i] and B[j]
 has to be contributors, So add 1 to res[i-1,j-1]. Note that i and j are the ENDINGS NOT the startings in the ITERATIVE solution.
 

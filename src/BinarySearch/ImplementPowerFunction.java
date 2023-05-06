@@ -32,7 +32,7 @@ public class ImplementPowerFunction {
 
         //to make modulo +ve
         if (x == 0)
-            return 0; // In case x is divisible by p;
+            return 0; // In case x is divisible by d;
 
         while(n>0){
             if(n%2!=0){

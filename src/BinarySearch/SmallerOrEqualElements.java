@@ -22,12 +22,14 @@ You need to find the last of the duplicate(if any) of B
         int left=0;
         int right=A.length-1;
 
+        int possibleResult=-1;
+
         while(left<=right){
-            int mid=left+(right-left)/2;
+            int mid=(left+right)/2;
 
             //Cannot do short circuiting even if mid is a match, as we need the last element
-
             if(A[mid]<=B){
+                possibleResult=mid;
                 left=mid+1;
 
             }
@@ -37,13 +39,13 @@ You need to find the last of the duplicate(if any) of B
 
         }//while
 
-        return left;//or right+1;
+        return possibleResult+1;
 
     }//solve
 
     public static void main(String[] args) {
-        int[] A=new int[]{1, 3, 4, 4, 6};
-        int B=4;
+        int[] A=new int[]{1, 3, 4, 4, 6, 6, 6, 6, 6, 7};
+        int B=6;
         int res=new SmallerOrEqualElements().solve(A,B);
         System.out.println(res);
     }//main

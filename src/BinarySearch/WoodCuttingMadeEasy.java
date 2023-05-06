@@ -2,8 +2,8 @@ package BinarySearch;
 
 public class WoodCuttingMadeEasy {
     public int solve(int[] A, int B) {
-/*Sorting is not required. In general, for the main binary search we will have nlogX time complexity(where X is the max height of the tree, n: array
-size). Sorting will add further nlogn complexity.
+/**Sorting is not required. In general, for the main binary search we will have nlogX time complexity(where X is the max height of the tree, n: array
+size). We multiple by n because we call getWood every time. Sorting will add further nlogn complexity.
 
 Find the max height. So answer can be from 0 to max height. Search it via binary search. At every iteration, when mid is found, calculate
 the wood_sum, by adding A[i]-mid. Since aim is to find the maximum possible mid(chop as less trees as possible), so if wood_sum>=B, left=mid+1 */
@@ -14,22 +14,21 @@ the wood_sum, by adding A[i]-mid. Since aim is to find the maximum possible mid(
         }
 
 
-/*
+/**
 Decide:
 Start:l=0, r=maxHt
-During:At every iteration update what:  wood=Sum(A[i]-mid). If wood>B, left=mid+1. Else,right=mid-1
+During:At every iteration update what:  wood=Sum(A[i]-mid). If wood>B, left=mid+1, and we can optimize further So store mid in possibleValue. Else,right=mid-1
 If wood=B, short circuit
 End when:l<=r
-Return what:right. What happens in case of the last element? When left==right, we are already having a valid answer, but to get a better answer
-(more height), we assign left=mid+1. This is where the condition left<=right breaks. So what stays valid then? The prev iteration values
-where left<=right. At the current iteration, this is returned by right, as left was modified.
+Return what: possibleValue.
 */
         int left=0;
         int right=maxHt;
 
+        int possibleValue=-1;
 
         while(left<=right){
-            int mid=left+(right-left)/2;
+            int mid=(left+right)/2;
 
             long wood=getWood(A,  mid);
 
@@ -39,17 +38,19 @@ where left<=right. At the current iteration, this is returned by right, as left 
             }
 
             if(wood>(long)B){
-                //shift right
+                //shift right. We have more wood than required. But we would like to optimize further
+                possibleValue=mid;
                 left=mid+1;
             }//if
 
             else{
+                //wood<(long)B
                 //shift left
                 right=mid-1;
             }//else
         }//while
 
-        return right;
+        return possibleValue;
 
     }//solve
 

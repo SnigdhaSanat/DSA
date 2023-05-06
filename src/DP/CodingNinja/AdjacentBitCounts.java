@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 //https://classroom.codingninjas.com/app/classroom/me/567/content/9694/offering/73051/problem/1712
 public class AdjacentBitCounts {
-/*Given values are n and k. To convert it into sub-problems,  we will have to call some functions where n-1 and k-1 is used. To be able to use a
+/**Given values are n and k. To convert it into sub-problems,  we will have to call some functions where n-1 and k-1 is used. To be able to use a
 sub-problem, let us say prepending a 0 or a 1 to a string (n-1), we will have to know whether we are prepending 0 or 1, AND whether the (n-1) string
 starts with 0 or 1. So function will be fn(n,k,starts with0Or1). Note that the fn() gives us the number of strings of len n and AdjBC=k.
 
@@ -69,22 +69,22 @@ n=0, for all k, and both startsWith values, res will be 0.
             //fn(n,k,1)={fn(n-1,k,0)+fn(n-1,k-1,1)}
 
             for(int i=2;i<=n;i++){
-                    for(int j=0;j<=k;j++){
+                for(int j=0;j<=k;j++){
                     //For startsWith=0
-                        memo[i][j][0]=i>0?(memo[i-1][j][0]+memo[i-1][j][1])%modulo:0;
+                    memo[i][j][0]=i>=1?(memo[i-1][j][0]+memo[i-1][j][1])%modulo:0;
 
                     //For startsWith=1
-                        if(i>0 && j>0){
-                            memo[i][j][1]=(memo[i-1][j][0]+memo[i-1][j-1][1])%modulo;
-                        }
-                        else if(i>0 && j<=0){
-                            //base case of i==0
-                            memo[i][j][1]=memo[i-1][j][0];
-                        }
-                        else{
-                            //base case of j==0
-                            memo[i][j][1]=0;
-                        }
+                    if(i>=1 && j>=1){
+                        memo[i][j][1]=(memo[i-1][j][0]+memo[i-1][j-1][1])%modulo;
+                    }
+                    else if(i>=1 && j<1){
+                        //base case of i==0
+                        memo[i][j][1]=memo[i-1][j][0];
+                    }
+                    else{
+                        //base case of j==0
+                        memo[i][j][1]=0;
+                    }
 
                 }//inner for
             }//outer for

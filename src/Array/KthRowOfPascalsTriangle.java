@@ -30,6 +30,7 @@ public class KthRowOfPascalsTriangle {
 
             }//inner for
         }//outer for
+
         int[]res=new int[k];
         for(int i=0;i<k;i++){
             res[i]=A[k-1][i];

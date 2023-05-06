@@ -28,7 +28,7 @@ public class FindDuplicateInArray {
     }
 
     public static void main(String[] args) {
-        int[] A=new int[]{3,4 ,1, 4, 1};
+        int[] A=new int[]{1,2,3};
         int res=new FindDuplicateInArray().repeatedNumber(A);
         System.out.println(res);
     }

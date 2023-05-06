@@ -21,7 +21,7 @@ public class AntiDiagonals {
                 row_idx+=1;
             }//inner loop ends=>row ends
 
-            //put the row_array inti res
+            //put the row_array into res
             res[res_idx]=row_array;
             res_idx+=1;
 

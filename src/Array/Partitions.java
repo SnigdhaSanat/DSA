@@ -73,7 +73,7 @@ for every left, where sum_so_far=par_sum,for right>=left+2, add to the result ev
 
 
     public static void main(String[] args) {
-        int[] A=new int[]{0, 1, -1, 0};
+        int[] A=new int[]{1, 2, 3, 0, 3};
         int B=A.length;
         int res=new Partitions().solve(B,A);
         System.out.println(res);

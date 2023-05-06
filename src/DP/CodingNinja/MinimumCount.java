@@ -36,7 +36,7 @@ public static int minCount(int n) {
         }//while
 
         if(memo[i]==0){
-            /*if i is a perfect square. If memo[i] !=0, it means it was a perfect square and so already assigned in the condition if(j*j==i).
+            /*if i was a perfect square,it was already assigned in the condition if(j*j==i). So memo[i]!=0
             Do NOT assign in this case.
 
             So this if is the case where memo[i] is still unassigned*/

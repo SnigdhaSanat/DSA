@@ -7,7 +7,7 @@ public class MaximumUnsortedSubarray {
     public int[] subUnsort(int[] A) {
 
         /*Simply create a copy of sorted array, then compare it with the unsorted one, and check the min and max indices where elements
-        if the sorted and the original array mismatch*/
+        of the sorted and the original array mismatch*/
         int n=A.length;
         int[] ACopy=new int[n];
 

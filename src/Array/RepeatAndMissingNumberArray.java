@@ -7,7 +7,7 @@ public class RepeatAndMissingNumberArray {
 //-------------------------
         int missing=-1;
 
-        //Question requirement: Linear runtime complexity, and without using extra memory
+//Question requirement: Linear runtime complexity, and without using extra memory
 /*If space were not a constraint, you would have taken an additional array of size extra[n]. Iterate over A, and if the element belongs to
 the range[1,n],place each element in element-1 position in the extra[n] array. And finally iterate over that array, to see if any
 position in the extra array is empty. the first empty number is the answer. If all are filled, n+1 is the answer.

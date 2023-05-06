@@ -7,7 +7,7 @@ public class MaxSumContiguousSubarray {
     /* Central idea: Initiate start and end indices as 0, and curr_sum as 0,  and a max with min int value.
 
     From the left, add arr[i] to the max_so_far_sum. Update max_so_far_sum if required. As and when you encounter a negative
-    element, reset start to i+1. As any positive single element will be better off.
+    sum, reset start to i+1. As any positive single element will be better off.
 
     If all the values are negative, the largest number (least negative) element will be the  max sum  */
         int n=A.length;
@@ -20,8 +20,8 @@ public class MaxSumContiguousSubarray {
 
         for(int i=0;i<n;i++)
         {
-            //curr_sum+=A[i];
-            if(curr_sum+A[i]<0)
+            curr_sum+=A[i];
+            if(curr_sum<0)
             {
                 start=i+1;
                 end=i+1;
@@ -36,7 +36,6 @@ public class MaxSumContiguousSubarray {
             else
             {
                 end+=1;
-                curr_sum+=A[i];
                 max_so_far_sum=Math.max(max_so_far_sum, curr_sum);
             }
 

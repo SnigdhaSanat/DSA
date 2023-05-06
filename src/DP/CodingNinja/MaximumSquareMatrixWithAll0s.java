@@ -58,7 +58,8 @@ public class MaximumSquareMatrixWithAll0s {
         return finalMax;
     }//findMaxSquareWithAllZeros
 
-    /*A more efficient approach is below. For explanation, check out the hint video in the given problem link*/
+    /**A more efficient approach is below. Start from base case i=0, j=0. If the value there is 0, put 1, else 0. Next check the first row and first col. Since they cannot form a square, there also check the value, if the value there is 0, put 1, else 0.   Base cases being taken care of, start from 1,1, and move in the usual 2D fashion. For each of the call, check its North, West and North west cell's memo.  NW cell is the max square value till that point. Now with the current call, we also have to consider the ith row and jth column. That is what is represented by the West and the North cell respectively. Take their min.*/
+
     public static int findMaxSquareWithAllZeros2(int[][] input) {
         int rows=input.length;
         if(rows==0){

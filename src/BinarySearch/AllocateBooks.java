@@ -21,7 +21,7 @@ public class AllocateBooks {
 MAXIMUM number of pages allocated to a student*/
         int left=0;
         int right=sum;
-
+        int lastPossibleValue=-1;
 
         while(left<=right){
 /*Every mid is the maximum number of pages allocated. This value has  to be minimized. If isPossible
@@ -35,20 +35,20 @@ lower actual value, or a higher actual*/
 
             if(isPossible(A,n,B,mid)){
                 /*neither any A[i] exceeded mid(max number of pages), nor we ran out of students. As the question requires the minimum mid(max number of
-                 pages allocated to a student), decrease the mid. */
+                 pages allocated to a student), decrease the mid. This is an optimization. */
+                lastPossibleValue=mid;
                 right=mid-1;
             }
 
             else{
-                /*if isPossible returns false, it means mid is too less, either because one or more A[i]s>mid, or because we ran out of students with
-                * books still left. So increase mid.*/
+                /*if isPossible returns false, it means mid is too less, either because one or more A[i] is >mid, or because we ran out of students with
+                * books still left. So increase mid. This is the case where mid value not valid.*/
                 left=mid+1;
             }
 
         }//while
 
-    /*At the last iteration of left==right, we optimize further by assigning right=mid-1, where the loop breaks. So left is the valid value*/
-        return left;
+        return lastPossibleValue;
     }//books
 
     boolean isPossible(int[] A, int n, int B,int mid){

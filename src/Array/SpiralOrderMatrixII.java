@@ -12,7 +12,6 @@ public class SpiralOrderMatrixII {
         else{
             ring_limit=(int)Math.ceil((double)n/2-1);
 
-
             int[][] sq_matrix=new int[n][n];
             int value=1;//value to put in the square matrix positions
             int i=0,j=0;//i is curr row, j is curr column
@@ -61,7 +60,7 @@ public class SpiralOrderMatrixII {
     }//generateMatrix
 
     public static void main(String[] args) {
-        int A=6;
+        int A=3;
         int[][] res=new SpiralOrderMatrixII().generateMatrix(A);
         for(int i=0;i<res.length;i++){
             int[] row=res[i];

@@ -15,7 +15,7 @@ public class NextPermutation {
 
         Why this works: The descending subarray you get is the highest permutation for that index. For the next permutation, you need to
         move index to the left, and find the successor of the previous element for that index.
-        Previous element will be inside the decreasing array range, else the decreasing array would have continued. To find its
+        Previous element will fit inside the decreasing array range, else the decreasing array would have continued. To find its
         successor means, in the entire permutation sequence, we move the index further to the left by 1, with 'previous' replaced
         by 'previous's' successor. And every time we move the index to left, with a successor, we start with an ascending array */
 

@@ -4,8 +4,8 @@ public class MatrixMedian {
     public int findMedian(int[][] A) {
         int rows=A.length;
         int cols=A[0].length;
-/*
-IMP: Duplicates need to be considered. Also, median is about the distribution of numbers. For an array {1,2,3,4,10,100}, median will be far less than 50,
+
+/* IMP: Duplicates need to be considered. Also, median is about the distribution of numbers. For an array {1,2,3,4,10,100}, median will be far less than 50,
 and for {1,60,90,92,99}, it will be far more than  50. this is what is used for the binary search.
 
 The idea: Because each of the individual rows are sorted, we can find the overall min and max element in O(rows) time instead of O(rows*cols). That is the
@@ -27,9 +27,7 @@ if equal, if the mid exists in the array, return that, basically short circuit.
 
 end when:when  (left<=right)  is false
 
-Return what:right. What happens in case of the last element? When left==right, we are already having a valid answer, but to get a better answer
-, we assign left=mid+1. This is where the condition left<=right breaks. So what stays valid then? The prev iteration values
-where left<=right. At the current iteration, this is returned by right, as left was modified.
+Return what: Store the current valid into res, and return that
 */
 
         int min=Integer.MAX_VALUE;
@@ -50,27 +48,28 @@ where left<=right. At the current iteration, this is returned by right, as left 
         int right=max;
 
         //Time complexity of while loop: log(max-min)*O(n*(log m))
+        /*As there can be duplicates, the smaller can be lesser than the reqd_smaller. But not greater*/
+        int res=-1;
         while(left<=right){
             int mid=(left+right)/2;
 
             int smaller=findSmallerNos(mid,A,rows,cols); //Time complexity O(n*(log m))
 
             if(smaller>reqd_smaller){
-                //means the mid is too high
+                //means the mid is too high, move left
                 right=mid-1;
             }
-            else if(smaller<=reqd_smaller){
-                //means the mid is too low
+            else
+                //if(smaller<=reqd_smaller)
+            {
+                //means the mid is too low. mid might be the required value
+                res=mid;
                 left=mid+1;
             }
-            else{
-                //if smaller==reqd_smaller, short circuit
-                    return mid;
-            }//else
 
         }//while
 
-        return right;
+        return res;
 
         //Overall time complexity: O(n)+ {log(max-min)*O(n*(log m))}
     }//findMedian
@@ -88,19 +87,24 @@ where left<=right. At the current iteration, this is returned by right, as left 
             int lo=0;
             int hi=cols-1;
 
+            int res=0;
+
             while(lo<=hi){
                 //no short circuiting
-                int mid=lo+(hi-lo)/2;
+                int mid=(lo+hi)/2;
+
                 if(A[i][mid]>=element){
                     hi=mid-1;
 
                 }
                 else{
+                    //this can still be valid. So store it into result
+                    res=mid+1;// if(A[i][mid]<element), mid might be the one. Add 1 as it is a 0 based index, and we need the count
                     lo=mid+1;
                 }
             }//while
 
-            int resRow=hi+1;//or lo as we need the count
+            int resRow=res;//hi+1;
             count+=resRow;
 
         }//for

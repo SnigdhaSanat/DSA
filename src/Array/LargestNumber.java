@@ -28,6 +28,8 @@ formed here, we place the larger one first, not the smaller one: 321 before 213,
             return "0";
         }
 
+        //Lexicographically for STRINGS 30 and 3, 330>303. This aligns with the arithmetic comparison
+        //Descending
         Arrays.sort(strArr, new Comparator<String>(){
             public int compare(String a, String b){
                 if((a+b).compareTo(b+a)>0){
@@ -39,7 +41,6 @@ formed here, we place the larger one first, not the smaller one: 321 before 213,
                 else{
                     return 0;
                 }
-                //return (b+a).compareTo(a+b);
             }
         });
         StringBuilder sbf = new StringBuilder();

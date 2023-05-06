@@ -1,6 +1,6 @@
 package Array;
 
-public class MinMax {
+public class MaxMin {
     public int solve(int[] A) {
         int max=-1000000000;
         int min=1000000000;
@@ -22,7 +22,7 @@ public class MinMax {
 
     public static void main(String[] args) {
         int[] A=new int[]{1, 3, 4, 1};
-        int res=new MinMax().solve(A);
+        int res=new MaxMin().solve(A);
         System.out.println(res);
 
     }//main

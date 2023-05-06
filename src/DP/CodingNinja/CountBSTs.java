@@ -29,7 +29,7 @@ public class CountBSTs {
     *   /
       ST2
     * How many arrangements of this one is possible? ST1 can have 1 to n-2 elements, and ST2 can have next n-2 to 1 elements correspondingly
-    * So it will be fn(1)fn(n-2)+fn(2)fn(n-3)+.....+fn(n-1)fn(1).
+    * So it will be fn(1)fn(n-2)+fn(2)fn(n-3)+.....+fn(n-2)fn(1).
     *
     * Time complexity: n*n, more precisely: n*(n-2)
     */

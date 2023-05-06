@@ -1,6 +1,6 @@
 package BinarySearch;
 
-public class MatrixSearchMatrixSearch {
+public class MatrixSearch {
 
     /*This is a simple binary search. As the 2d array is sorted, copy it into a 1D array*/
     public int searchMatrix(int[][] A, int B) {
@@ -30,7 +30,6 @@ public class MatrixSearchMatrixSearch {
         int res=search(arr,0,arrSize-1,B);
         return res;
     }//searchMatrix
-
 
     public int searchMatrix2(int[][] A, int B) {
         /*
@@ -73,7 +72,7 @@ public class MatrixSearchMatrixSearch {
 
     static int search(int[] arr, int left,int right,int B){
         while(left<=right){
-            int mid=left+(right-left)/2;
+            int mid=(left+right)/2;
 
             if(arr[mid]==B){
                 //short circuit
@@ -107,7 +106,7 @@ public class MatrixSearchMatrixSearch {
         };
 
         int B=41;
-        int res=new MatrixSearchMatrixSearch().searchMatrix2(A,B);
+        int res=new MatrixSearch().searchMatrix2(A,B);
         System.out.println(res);
     }//main
 }//MatrixSearchMatrixSearch

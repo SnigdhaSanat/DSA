@@ -29,8 +29,9 @@ the maximum sum of the sub-array*/
         //find the maximum sum of the sub-array
         int sumCurr=0, maximum=-1;
         int left=0, right=0, leftRes=0, rightRes=0;
+
         //int idx=0;
-        while(right<n && left<n){
+        while(left<n && right<n){
             sumCurr+=B[right];
             if(sumCurr>maximum){
                 //update the maximum
@@ -40,7 +41,7 @@ the maximum sum of the sub-array*/
             }
 
             if(sumCurr<0){
-                //if sumCurr hits a negative value, do it like you do for max contiguous array sum
+                //if sumCurr hits a negative value, do it like you do for max contiguous array sum,reset
                 left=right+1;
                 right=left;
                 sumCurr=0;
@@ -56,4 +57,12 @@ the maximum sum of the sub-array*/
         int[] res=new int[]{leftRes+1,rightRes+1 };
         return res;
     }//flip
+
+    public static void main(String[] args) {
+        String A="0011001";
+       int[] res= new Flip().flip(A);
+       for(int i=0;i<res.length;i++){
+           System.out.println(res[i]);
+       }
+    }
 }//Flip

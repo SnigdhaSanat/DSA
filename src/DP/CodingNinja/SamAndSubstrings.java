@@ -14,7 +14,6 @@ public class SamAndSubstrings {
         //Note that we proceed from left to right,unlike a number
         for(int i=1;i<len;i++){
             /*Say we have for "1": 1.
-            /*Say we have for "1": 1.
             So for "12", we will add to it, 12 and 2 in addition to 1.
             For "123" we add to it, 23, 123 and 3.
             For "1234" we add to it 4, 34, 234, 1234.

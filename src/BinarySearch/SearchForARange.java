@@ -5,20 +5,24 @@ public class SearchForARange {
     public int[] searchRange(final int[] A, int B) {
         int n=A.length;
 
-    //for starting
-    /*
+        /**
+         * algorithm's runtime complexity must be in the order of O(log n).
+         */
+
+        //for starting
+    /**
     start: left=0,right=n-1
     during:b<=mid(no short circuiting): right=mid-1 else,left=mid+1
     end when:left<=right
-Return what:left. What happens in case of the last element? When left==right, we are already having a valid answer, but to get a better answer
-, we assign right=mid-1. This is where the condition left<=right breaks. So what stays valid then? The prev iteration values
-where left<=right. At the current iteration, this is returned by left, as right was modified. Note that we need the index here, not the count.So
-no modification
+Return what:return the possible res
     */
         int left=0,right=n-1;
+        int possibleStaring=-1;
+
         while(left<=right){
             int mid=left+(right-left)/2;
             if(B<=A[mid]){
+                possibleStaring=mid;
                 right=mid-1;
             }
             else{
@@ -27,8 +31,8 @@ no modification
 
         }//while
 
-        //A[left]==B check is important
-        int starting=(left>=0 && left<n && A[left]==B)?left:-1;
+        //A[possibleStaring]==B check is important
+        int starting=(possibleStaring>=0 && possibleStaring<n && A[possibleStaring]==B)?left:-1;
 
 
     //for ending
@@ -40,9 +44,12 @@ no modification
     */
 
         left=0;right=n-1;
+        int possibleEnding=-1;
+
         while(left<=right){
-            int mid=left+(right-left)/2;
+            int mid=(left+right)/2;
             if(B>=A[mid]){
+                possibleEnding=mid;
                 left=mid+1;
             }
             else{
@@ -51,8 +58,8 @@ no modification
 
         }//while
 
-        //A[right]==B check is important
-        int ending=(right>=0 && right<n && A[right]==B)?right:-1;
+        //A[possibleEnding]==B check is important
+        int ending=(possibleEnding>=0 && possibleEnding<n && A[possibleEnding]==B)?right:-1;
 
         int[] res=new int[]{starting,ending};
         return res;
@@ -60,8 +67,8 @@ no modification
     }//searchRange
 
     public static void main(String[] args) {
-        int[] A=new int[]{5, 7, 7, 8, 8, 10};
-        int B=8;
+        int[] A=new int[]{4, 7, 7, 7, 8, 10, 10};
+        int B=3;
 
         int[] res=new SearchForARange().searchRange(A,B);
 

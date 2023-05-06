@@ -17,7 +17,8 @@ public class RotatedSortedArraySearch {
 Start:left=0;right=n-1
 
 During: if a[mid-1]>a[mid](NOT >=(unless whole array is duplicate), as they are the end and starting of the array) return mid(short circuit).
-If a[mid]>=a[right]:left=mid+1. If a[0]>=a[mid]: right=mid-1
+If a[mid]>=a[right]:left=mid+1.
+If a[0]>=a[mid]: right=mid-1
 
 End: continue while left<right(Not equal).
 
@@ -37,7 +38,7 @@ Return: Since we are down to 2 elements, offset must be the "right"*/
             int left=0;
             int right=n-1;
 
-            while(left<right){
+            while(left<=right){
 
                 int mid=(left+right)/2;
 
@@ -79,7 +80,7 @@ Return: Since we are down to 2 elements, offset must be the "right"*/
             //left_real=(left_idea+offset)%n
             //right_real=(right_ideal +offset)%n;
 
-            int midSearchIdeal=left_ideal+(right_ideal-left_ideal)/2;
+            int midSearchIdeal=(left_ideal+right_ideal)/2;
 
             int midSearchReal=(midSearchIdeal+offset)%n;
 

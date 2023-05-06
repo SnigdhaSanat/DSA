@@ -15,6 +15,7 @@ public class MinimumJumps {
     public  int minimumJumps(int[] arr, int N) {
         Util util=new Util();
         util.memo=new int[N];
+
         for(int i=0;i<N;i++){
             util.memo[i]=-1;
         }
@@ -36,6 +37,7 @@ public class MinimumJumps {
                     res=util.memo[i];
                 }
                 else{
+                    //if(util.memo[i]==-1)
                     res=recurse(arr,i,util);
                 }
                 if(res<min){

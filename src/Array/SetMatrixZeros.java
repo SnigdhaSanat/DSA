@@ -41,7 +41,9 @@ public class SetMatrixZeros {
          }//outer for loop
 
 
-       /*Part 2: First row and first column, which doubled up as trackers, affect all the elements EXCEPT the 1st row and 1st column*/
+/*Part 2: First row and first column, which doubled up as trackers, affect all the elements EXCEPT the 1st row and 1st column.
+Reason? If the rowTracker(runs vertically) which is now the first column, has a 0, that means one of the elements of the ROW is 0. But that
+does not mean that the entire 1st column will be 0 as well. That makes no sense. If the first column in any row has a 0 because an element of that row, the entire 1st column should not be affected by it.  */
          for(int i=1;i<m;i++){
              for(int j=1;j<n;j++){
                  if(a.get(i).get(0)==0 || a.get(0).get(j)==0){

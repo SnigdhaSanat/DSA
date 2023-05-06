@@ -27,8 +27,8 @@ public class PaintersPartitionProblem {
 
             if(isFeasible(C,n,A,B,mid)){
 
-/*if isFeasible, this might be an answer. Still continue searching towards left for a lesser value.*/
-
+/*if isFeasible, this might be an answer. Store this in res. Still continue searching towards left for a lesser value.*/
+                res=mid;
                 right=mid-1;//to find even smaller time
             }
             else{
@@ -36,14 +36,10 @@ public class PaintersPartitionProblem {
             }
         } //while
 
-        /*At the last iteration of left==right, we optimize further by assigning right=mid-1, where the loop breaks. So left is the valid value*/
-        long minPossibleMaxIndividualLength=left;
+        /*res is the longest board assigned to an individual painter(which is what we minimized). As the work
+        * was parallelized, this max individual length(res) took the longest time. So multiply it by B.*/
 
-        /*minPossibleMaxIndividualLength is the longest board assigned to an individual painter(which is what we minimized). As the work
-        * was parallelized, this max individual length(minPossibleMaxIndividualLength) took the longest time. So multiply it by B.*/
-
-        res=(B*left)% 10000003;///because we need the time here, not the actual max length
-        return (int)res;
+        return (int)(B*res%10000003)% 10000003;///because we need the time here, not the actual max length
     }//paint
 
     boolean isFeasible(int[] C, int n,int A, int B, long mid){
@@ -81,9 +77,9 @@ public class PaintersPartitionProblem {
     }//isFeasible
 
     public static void main(String[] args) {
-        int A = 2;
-        int B = 5;
-        int[] C = new int[]{1, 10};
+        int A = 1;
+        int B = 1000000;
+        int[] C = new int[]{1000000, 1000000};
         int res= new PaintersPartitionProblem().paint(A,B,C);
         System.out.println(res);
     }//main

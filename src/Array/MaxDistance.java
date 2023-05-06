@@ -75,7 +75,7 @@ public class MaxDistance {
     }//maximumGap
 
     public static void main(String[] args) {
-        int[] A = {3, 5, 4, 2};
+        int[] A = {3, 2, 1 };
         int res=new MaxDistance().maximumGap(A);
         System.out.println(res);
     }

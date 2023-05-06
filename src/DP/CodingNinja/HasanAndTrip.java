@@ -6,7 +6,7 @@ import java.util.Scanner;
 // https://classroom.codingninjas.com/app/classroom/me/567/content/9694/offering/73051/problem/1709
 public class HasanAndTrip {
 
-/*Not that this is a sequence problem. So any point can be arrived at from any point behind it. So for any
+/*Note that this is a sequence problem. So any point can be arrived at from any point behind it. So for any
 * i, all j<i have to be considered.
 * Start from 0, as that is a question requirement. So i=1 will consider max from j=0 to j=0, meaning i=0 to i=1 step is considered,
 * and is the answer for i=1. i=2 will consider from j=1(which is in turn step from i=0 to 1 ) to j=0. So every j is actually linked to 0th step.

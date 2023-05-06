@@ -6,44 +6,48 @@ import java.util.Arrays;
 public class SortedInsertPosition {
     public int searchInsert(ArrayList<Integer> a, int b) {
         int n=a.size();
-    /*
-    start:left=0,right=n-1
 
-    during: b<=mid: right=mid-1, b>mid: left=mid+1 //short circuiting is optional here, as even if we don't short circuit, we would break the loop
-    eventually after narrowing down left AND right to that index
+/**
+ start:left=0,right=n-1
 
-    ends when:while left<=right
-    returns: It will break the loop and return when A[mid] is an exact match. But if it comes to left<=right, and loop ends, return left
+ during: mid<b:left=mid+1, mid>b:right=mid-1, b==mid: Short circuit if b is present.
+ But if b is not present, this condition will never be true. In that case we basically need the index of the last element smaller to b, and then add 1 to it. So for mid<b:left=mid+1, mid might be a valid value, so we store it.
 
-    Return what:left. What happens in case of the last element? When left==right, we are already having a valid answer(if at all the element is present in the list),
-    but to get a better answer, we assign right=mid-1. If the element is not present at all, then also, left would be the return value, as current A[left]
-    is the element just bigger than B.
+ ends when:while left<=right
 
-    This is where the condition left<=right breaks. So what stays valid then? The prev iteration values
-where left<=right. At the current iteration, this is returned by left, as right was modified. Note that we need the index here, not the count.So
-no modification.
-    */
+ Return what: If b is present, b==mid: Short circuit wil take care of it.
+
+ Else we keep searching for #smaller elements, and so even if mid might be a valid value, we assign left=mid+1. We store this mid and return its +1.
+
+ */
 
         int left=0;
         int right=n-1;
 
+        int possibleValue=-1;
+
         while(left<=right){
-            int mid=left+(right-left)/2;
+            int mid=(left+right)/2;
 
-//            if(a.get(mid)==b){
-//                //short circuiting is optional here
-//                return mid;
-//            }
+            if(a.get(mid)==b){
+                //short circuiting
+                return mid;
+            }
 
-            if (b<=a.get(mid)){
+            if (a.get(mid)>b){
                 right=mid-1;
+
             }
             else{
+                //a.get(mid)<b
+                //mid might be a possible value, tht is the last index of a[i]<b
+                possibleValue=mid;
                 left=mid+1;
+
             }
 
         }//while
-        return left;
+        return possibleValue+1;
     }//searchInsert
 
     public static void main(String[] args) {

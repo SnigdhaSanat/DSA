@@ -42,10 +42,6 @@ public class PerfectPeakOfArray {
 
         }//for
 
-        if(result==0 && i==n-1){
-            //not found
-            result=0;
-        }
         return result;
     }//perfectPeak
 

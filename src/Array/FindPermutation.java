@@ -34,8 +34,8 @@ the numbers from the array list can be directly put in the res. */
 
         res.add(offset);
 
-        int minDigit=offset-1;
         int maxDigit=offset+1;
+        int minDigit=offset-1;
 
         for(int i=0;i<n;i++){
             //Time Complexity: linear

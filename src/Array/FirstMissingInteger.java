@@ -54,7 +54,7 @@ Then we iterate again, and the first place we see an out of place element, that 
     }//firstMissingPositive
 
     public static void main(String[] args) {
-        ArrayList<Integer> al=new ArrayList<Integer>(Arrays.asList(1, 2, 3, 4, 5,0, 6));
+        ArrayList<Integer> al=new ArrayList<Integer>(Arrays.asList(1,2,0));
         int res=new FirstMissingInteger().firstMissingPositive(al);
         System.out.println(res);
     }

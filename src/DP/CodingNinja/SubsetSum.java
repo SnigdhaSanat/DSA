@@ -21,11 +21,13 @@ public class SubsetSum {
         for(int i=1;i<=n;i++){
             for(int j=1;j<=sum;j++){
                 if(j-arr[i-1]>=0){
+                    //include
                     //note that this is a subset, not the coin change problem with infinite coins of each denomination,
                     // hence it is (i-1) in both the cases
                     memo[i][j]=(memo[i-1][j-arr[i-1]])||(memo[i-1][j]);
                 }
                 else{
+                    //exclude
                     memo[i][j]=memo[i-1][j];
                 }
             }//inner loop
