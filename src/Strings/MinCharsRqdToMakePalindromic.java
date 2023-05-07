@@ -19,18 +19,17 @@ public class MinCharsRqdToMakePalindromic {
 		String B= sb.toString();
 		int len=B.length();
 
-/*
-Eg: AACECAAAA
+/**
+Eg: ABBAXX IS NOW ABBAXX!XXABBA
 In the original array, we were basically trying to find out how many letters to be prefixed, which is equivalent to how
 many letters need to be omitted at the end to get a palindrome. The LPS[len-1] of (original string+sentinel+rev) array
 is that number of characters makes up that palindrome after those omitted letters. Let us call it x.Hence the res is the
-diff of string A's length and x, which gives us the count of letters to be prefixed(or omitted at the end)
-(AACECAAAA sentinel AAAACECAA is what you create)
-What if you need to return the letters? Ans: Return the letters between the sentinel char and Sb's length -LPS[len-1]
+diff of original string A's length and x, which gives us the count of letters to be prefixed(or omitted at the end)
+What if you need to return the letters? Ans: Return the letters between the sentinel char and LPS[len-1]
 
-What if you need to suffix instead of prefix?:Eg:AAAACECAA
+What if you need to suffix instead of prefix?:Eg:XXABBA
 In that case, since you need to omit it from the beginning this time, create it as (rev+sentinel+original string).
-AACECAAAA sentinel AAAACECAA
+ABBAXX sentinel XXABBA
 */
 		int lps[]=new int[len];//length of pattern
 		int[] resArray=computeLPSArray(B,len,lps);
