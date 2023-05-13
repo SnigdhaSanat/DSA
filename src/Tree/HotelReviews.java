@@ -28,7 +28,7 @@ class Pair{
 }//Pair
 
 public int[] solve(String A, String[] B) {
-    /*This problem can be solved using a HashSet to store the good words as WORDS, and then iterating through each of the words in each
+    /**This problem can be solved using a HashSet to store the good words as WORDS, and then iterating through each of the words in each
      reviews in B to count goodness value. Time complexity:O(g*w), where g is the count of good words given, and w is total
       words in B.
 

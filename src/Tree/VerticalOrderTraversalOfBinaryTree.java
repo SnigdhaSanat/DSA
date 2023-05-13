@@ -19,7 +19,7 @@ import java.util.*;
 public class VerticalOrderTraversalOfBinaryTree {
 
 public ArrayList<ArrayList<Integer>> verticalOrderTraversal(TreeNodeVertical A) {
-/*Of course you can do a preorder traversal, and then take care of things like top-to-bottom sequence of the uncle nodes which are the RC of the
+/**Of course you can do a preorder traversal, and then take care of things like top-to-bottom sequence of the uncle nodes which are the RC of the
 grand-parent(In pre order, the uncle node will be traversed after the current node, while in level order it is reverse). But the best way is to traverse
 in a level order fashion itself, to keep things simple, and automatically take care of the question requirement. 
 

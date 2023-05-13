@@ -5,7 +5,7 @@ import java.util.LinkedList;
 
 public class SlidingWindowMaximum {
     public int[] slidingMaximum(final int[] A, int B) {
- /*Concept: We will be using a Deque. For the first B elements, simply compute the max and print it. Then from Bth(0-index)
+ /**Concept: We will be using a Deque. For the first B elements, simply compute the max and print it. Then from Bth(0-index)
  to the N-Bth index element, where N is size of A, we do the following: Move the sliding window to the right, effectively
  increasing the "Front" by 1, and removing the first. But before adding an element to the rear, we remove the useless
  elements from the Deque. What is a useless element? If an element in the dequeue is smaller than the element being added
@@ -36,7 +36,7 @@ public class SlidingWindowMaximum {
             }//if
 
         while(!dq.isEmpty() && A[dq.peekLast()]<A[i]){
-/* The same rule of polling the rear elements, if the current element is greater than them, applies for the first B
+/** The same rule of polling the rear elements, if the current element is greater than them, applies for the first B
 elements as well. This is to maintain the desired structure of peekFirst() ALWAYS being the max element in the current
 window. After all, the first B elements will be used in the sliding windows starting from j>=1*/
             dq.removeLast();

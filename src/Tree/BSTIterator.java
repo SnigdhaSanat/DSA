@@ -4,7 +4,6 @@ import java.util.Stack;
 
 public class BSTIterator {
 
-
 class TreeNode {
     int val;
     BSTIterator.TreeNode left;
@@ -23,9 +22,8 @@ class TreeNode {
 public void pushStk(TreeNode root){
     //This is called during ctor, and also at every next()
 
-    /*Note that this is not a push to the tree , rather it pushes the param to the stack. Then updates current to the left
-    * most child of its left chain, which is basically its successor in the in order traversal. This ensures that the successor, which is also
-    * the next smallest element, is always at the top of the stack.*/
+    /** Note that this is not a push to the tree, rather it pushes the param to the stack. Then updates current to the left
+    * most child of its left chain, which is basically its successor in the in order traversal, the original root in the param already being the right child of the smallest element. This ensures that the successor, which is also the next smallest element, is always at the top of the stack.*/
 
     stk.push(root);
     TreeNode curr=root;

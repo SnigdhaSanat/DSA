@@ -37,7 +37,7 @@ public class BFSTraversal {
             int startingVertex=-1;
 
             while(visitedCount<v) {
-                /*The outer loop is required to keep track of the next connected component */
+                /**The outer loop is required to keep track of the next connected component */
                 //go to the the start of the next(or the first) connected component
                 for(int i=0;i<v;i++){
                     if(visited[i]==0){
@@ -51,7 +51,7 @@ public class BFSTraversal {
                 visitedCount += 1;
 
                 while (!open.isEmpty()) {
-                    /*Inner loop is to traverse within the connected component*/
+                    /**Inner loop is to traverse within the connected component*/
                     //Add its adjacent vertices of the front of open queue to open list.
                     int front = open.poll();
                     for (int j = 0; j < v; j++) {

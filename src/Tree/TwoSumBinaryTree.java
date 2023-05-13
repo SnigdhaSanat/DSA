@@ -19,7 +19,7 @@ class List{
     }
 
 public int t2Sum(TreeNode A, int B) {
-    //Traverse the array inorder, and make a list of it. Then compare using th e2 pointer approach
+    //Traverse the array inorder, and make a list of it. Then compare using the 2 pointer approach
     List list=new List();
     list.al= new ArrayList<Integer>();
 

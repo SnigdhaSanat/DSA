@@ -6,19 +6,17 @@ public class ShortestUniquePrefix {
 final int charCount=26;
 class TrieNode{
     TrieNode[] children=new TrieNode[charCount];
-    //boolean isEnd;
     int childCount;
     TrieNode(){
         for(int i=0;i<charCount;i++){
             children[i]=null;
         }//for
-        //isEnd=false;
         childCount=0;
     }//ctor
 }//class TrieNode
 
 public String[] prefix(String[] A) {
-    /*create a Trie for the strings in A. Then traverse each one again, and for each of them,
+    /**create a Trie for the strings in A. Then traverse each one again, and for each of them,
      * get the LAST node starting from ROOT node having, more than 1 children. Its child  will be the prefix for it.
      * Reason? Because if its parent has more than 1 children, it is the parent(prefix) of more than 1 word.
      * So we need its children of the next level to distinguish the words*/
@@ -42,27 +40,26 @@ for(int i=0;i<len;i++){
         }
         curr=curr.children[index];
     }//inner for
-    //Mark end of str, and reset curr
-    //curr.isEnd=true;
     curr=root;
 }//outer for
 
 //now traverse the strings again 1 by 1
-//ArrayList<String> res=new ArrayList<String>();
 int[] prefixCount=new int[len];//stores the prefix len for each of the strings
+
 for (int i=0;i<len;i++){
     String str=A[i];
     int strLen=str.length();
+
     curr=root;
+
     boolean currHasMultipleChildren=true;//always true for root
     int prefixLen=0;
 
     for(int j=0;j<strLen;j++){
-        int index=(int)str.charAt(j)-97;//97 is ASCII for 'a'
         if(currHasMultipleChildren){
             prefixLen=j;
         }
-
+        int index=(int)str.charAt(j)-97;//97 is ASCII for 'a'
         curr=curr.children[index];
         //if curr has multiple children. this is required for next level
 

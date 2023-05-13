@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 //https://classroom.codingninjas.com/app/classroom/me/567/content/10312/offering/79835/problem/1723
 
-/*Find the minimum weight edge, but the one that does not form a cycle. Repeat v-1 times*/
+/**Find the minimum weight edge, but the one that does not form a cycle. Repeat v-1 times*/
 class Edge implements Comparable<Edge>{
     int v1;
     int v2;
@@ -52,6 +52,7 @@ public class KruskalAlgo {
 
         int edgesCount=0;
         int i=0;
+
         while(edgesCount<v-1){
             //run this for v-1 number of edges
             Edge edge=edges.get(i);
@@ -104,22 +105,25 @@ public class KruskalAlgo {
     }//Kruskal
 
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int v = sc.nextInt();
-        int e = sc.nextInt();
+        //Scanner sc = new Scanner(System.in);
+        int v = 4;
+        int e = 4;
 
    ArrayList<Edge> edges=new ArrayList<Edge>();
 
 //As according to the question both v and e are >=2, no need to handle for 0 count cases
-    for(int i=0;i<e;i++){
-        //for edge number of times
-        int v1=sc.nextInt();
-        int v2=sc.nextInt();
-        int w=sc.nextInt();
 
-        Edge edge=new Edge(v1,v2,w);
-        edges.add(edge);
-}//for
+        //for edge number of times
+
+        Edge edge1=new Edge(0, 1, 3);
+        Edge edge2=new Edge(0 ,3, 5);
+        Edge edge3=new Edge(1,2,1);
+        Edge edge4=new Edge(2,3,8);
+        edges.add(edge1);
+        edges.add(edge2);
+        edges.add(edge3);
+        edges.add(edge4);
+
 
        ArrayList<Edge> res= Kruskal(edges,v);
 

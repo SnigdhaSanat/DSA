@@ -16,7 +16,7 @@ class TreeNodeCartesian {
 
 
 public class InorderTraversalOfCartesianTree {
-    /* Input: Inorder of a HEAP, not BST, so it is not sorted. Required output: Heap
+    /** Input: Inorder of a HEAP, not BST, so it is not sorted. Required output: Heap
     Note that this is a heap tree. So find the biggest element and its index. That will be the root of the heap tree.
     * Now, split it into left half and right half, leaving out the index in the middle. Those will be the left and right subtrees.
     * Recursively call them, and assign them to (root.left) and (root.right). Return root. Do this recursively, meaning within each subtree,
@@ -52,7 +52,7 @@ public class InorderTraversalOfCartesianTree {
             root.right=null;
         }
 
-        return  root;
+        return root;
     }//recursivelyBuild
 
 

@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class NearestSmallerElement {
     public int[] prevSmaller(int[] A) {
-    /*2 stacks are maintained, idx and elt. As we iterate, top elements of both idx and elt are popped, as long as
+    /**2 stacks are maintained, idx and elt. As we iterate, top elements of both idx and elt are popped, as long as
     A[i]< elt.top().As you pop, the popped top elt's res[i] is updated as A[i], as A[i] is the nearest element to the
     left which is smaller than elt.top(). Finally elt and idx are pushed into the stacks.
 

@@ -58,7 +58,7 @@ class ListClassDiag {
     //Question requirement: within the same diagonal, preserve the pre-order
 
 public ArrayList<Integer> solve(TreeNodeDiagonal A) {
-    /*Recursively traverse in pre order . For the left child, the diagonal value will be +1 of that of root. For
+    /**Recursively traverse in pre order . For the left child, the diagonal value will be +1 of that of root. For
     * right child it will be the same. Then sort according to diagonal value, and with indices within them*/
     ListClassDiag listClassDiag=new ListClassDiag();
     listClassDiag.al=new ArrayList<NodeDiag>();

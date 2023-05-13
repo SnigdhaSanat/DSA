@@ -12,9 +12,9 @@ public class CodingNinjas {
     static int solve(String[] Graph , int n, int m)
     {
 
-        /*Solve the LargestPiece question before this question*/
+        /**Solve the LargestPiece question before this question*/
 
-/*Use DFS. Take the matrix as the input "Graph". In the original DFS, we used the adjacency matrix, and travelled only if
+/**Use DFS. Take the matrix as the input "Graph". In the original DFS, we used the adjacency matrix, and travelled only if
 * there is an edge there. Here, we check for all the 8 neighbouring cells, and proceed only if the required character is present in one of them*/
         UtilityCodingNinja utilityCodingNinja=new UtilityCodingNinja();
         utilityCodingNinja.pathExists=false;
@@ -36,12 +36,11 @@ public class CodingNinjas {
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
                 if(charGraph[i][j]=='C' && !utilityCodingNinja.pathExists){
-                    /*resetting the visited array.This is NOT required, as anyway we mark the cells as unvisited when we return from recursion. So basically
-                    * only those cells are marked visited which we have traversed in the current recursion stack. So if we arrive at the 2nd or higher lateral iteration,
-                    * then all the cells visited during DFS recursions of the previous traversals will be marked unvisited. Rather this will give a TLE*/
+        /** resetting the visited array.This is NOT required, as anyway we mark the cells as unvisited when we return from recursion. So basically
+        * only those cells are marked visited which we have traversed in the current recursion stack. So if we arrive at the 2nd or higher lateral iteration, then          all the cells visited during DFS recursions of the previous traversals will be marked unvisited. Rather this will give a TLE*/
                     //utilityCodingNinja.visited=new int[n][m];
 
-                    /*set the first point as visited. */
+                    /** set the first point as visited. */
                     utilityCodingNinja.visited[i][j]=1;
 
                     //call DFS. Note that while standing at the current point, we look for the next char
@@ -59,10 +58,9 @@ public class CodingNinjas {
         //IMP: while standing at current row and column, search for the next wordIndex.
         // Also mark the visited of the next point before actually starting the DFS and stepping into it
 
-
         //if the next point to visit is the last word, set pathExists as true;
         if(wordIndex==util.word.length()){
-            /*We step into the currentRow and currCol because it passed the condition in the previous recursion. And we have no more to search*/
+            /**We step into the currentRow and currCol because it passed the condition in the previous recursion. And we have no more to search*/
             util.pathExists=true;
             return;
         }
@@ -73,9 +71,9 @@ public class CodingNinjas {
         }
 
 
-        //check all the 8 neighbours. This is the equivalent of the for loop in the original DFS
-        //In all the 8 directions, check if path is not yet found, if the next step is within limits,
-        //is it the char we are looking for and if it is still unvisited
+        /**check all the 8 neighbours. This is the equivalent of the for loop in the original DFS
+        In all the 8 directions, check if path is not yet found, if the next step is within limits,
+        is it the char we are looking for and if it is still unvisited*/
 
         //left
         if(!util.pathExists && currentCol-1>=0 && charGraph[currentRow][currentCol-1]==util.word.charAt(wordIndex)
@@ -144,7 +142,7 @@ public class CodingNinjas {
             //returned from recursion. Also the end of directions(lateral iterations)
         }
 
-        /*since you are going back the path, set [currentRow][currentCol] as unvisited, so that in the same recursion stack,
+        /**since you are going back the path, set [currentRow][currentCol] as unvisited, so that in the same recursion stack,
         the current row and column can be arrived at from a different path*/
         util.visited[currentRow][currentCol]=0;
         return;//return up the recursion stack;

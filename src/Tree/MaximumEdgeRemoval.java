@@ -1,7 +1,7 @@
 package Tree;
 
 import java.util.ArrayList;
-
+/**Each row of the 2 column B matrix denotes an edge. As it is a tree, so B will have A-1 rows or edges, where A is the number of nodes.*/
 class Visited{
     boolean visit[];
     int res;
@@ -37,13 +37,14 @@ public class MaximumEdgeRemoval {
         int v2=B[i][1];
         visited.matrix.get(v1).add (v2);
         visited.matrix.get(v2).add (v1);
-
     }
+
     visited.res = 0;
 
     // calling the dfs from node-0
     dfs(1, visited);
 
+    /**The final res from dfs, even if it is an even number is not counted. Why? This is because we either add subtreeNodeCount to the currComponentNodeCount in case of odd case, and in the even case, instead of adding subtreeNodeCount to the currComponentNodeCount, we add 1 to the global result. The thing that we don't add subtreeNodeCount to the currComponentNodeCount in case of even result means that subtreeNodeCount is disconnected from the currComponentNodeCount, or effectively the subtree is disconnected from its root. Even if the top root has an even root, it has nothing to disconnect from. So it adds nothing to the #edges removed. */
     return visited.res;
     }//solve
 
@@ -65,8 +66,8 @@ public class MaximumEdgeRemoval {
                 // Count the number of nodes in a subtree
                 int subtreeNodeCount = dfs(v, visited);
 
-                // if returned node count is even, disconnect(you don't have to disconnect really, just increment res)
-                // the subtree and increase result by one.
+/** if returned node count is even, disconnect. You don't have to disconnect really, just increment res. It is still a disconnect because in this case it does not add to the currComponentNodeCount. Only visited.res is incremented
+                */
                 if (subtreeNodeCount % 2 == 0)
                     visited.res++;
 

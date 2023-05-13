@@ -26,7 +26,7 @@ public class ZigZagLevelOrder {
     }//NodeZigZag
 
     public ArrayList<ArrayList<Integer>> solve(TreeNodeZigzagLevel A) {
-        /*Traverse each horizontal level. Each iteration will traverse 1 level, which will be directed by the currLevel.
+        /**Traverse each horizontal level. Each iteration will traverse 1 level, which will be directed by the currLevel.
          * As a level progresses, put all the nodes of that level into the currLevelList. After the level ends(after each inner while),
          * put that currLevelList into temp, in ascending or descending order, based on the current direction. Then add temp
          * to the res.*/
@@ -34,18 +34,19 @@ public class ZigZagLevelOrder {
         ArrayList<ArrayList<Integer>> res= new ArrayList<ArrayList<Integer>>();
 
         TreeNodeZigzagLevel curr=A;
-
         //adding the root
         int currLevel=0;
         levelList.add(new NodeZigZag(curr,currLevel));
+
         boolean leftToRight=true;
 
         while(!levelList.isEmpty()){
-            //inner while: Add children of all the nodes belonging to the current level
+
             //list to store elements belonging to the current level
             //create a new currentLevelList
             ArrayList<Integer> currLevelList=new ArrayList<Integer> ();
 
+            //inner while: Add children of all the nodes belonging to the current level
             while(!levelList.isEmpty() && levelList.peek().level==currLevel) {
                 NodeZigZag front=levelList.peek();
                 if(front.node.left!=null)

@@ -17,7 +17,7 @@ class TreeNodeFromInAndPre {
 
 
 public class ConstructBTFromInorderAndPreOrder {
-/* This is almost like the "SortedArrayToBalancedBST" question, where you create a balanced BST out of the
+/** This is almost like the "SortedArrayToBalancedBST" question, where you create a balanced BST out of the
 given inorder traversal of BST. Except that here it need not be balanced, and root is directed by the given pre order.
 
 Note that there is a pre order list and an inorder list. How do you find the root element? The pre order list has roots

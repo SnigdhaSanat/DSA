@@ -11,7 +11,7 @@ class UtilityConnectingDots{
 public class ConnectingDots {
     static int solve(String[] board , int n, int m)
     {
-        /*Use DFS. Take the matrix as the input "board". In the original DFS, we used the adjacency matrix, and travelled only if
+        /**Use DFS. Take the matrix as the input "board". In the original DFS, we used the adjacency matrix, and travelled only if
          * there is an edge there. Here, we check for all the 4 neighbouring cells, and proceed only if a same colored letter is present in one of them*/
         UtilityConnectingDots utilityConnectingDots=new UtilityConnectingDots();
 
@@ -72,9 +72,9 @@ public class ConnectingDots {
         }
 
 
-        //check all the 4 neighbours. This is the equivalent of the for loop in the original DFS
-        //In all the 4 directions, check if path is not yet found, if the next step is within limits,
-        //is it the same color we are looking for and if it is still unvisited
+        /**check all the 4 neighbours. This is the equivalent of the for loop in the original DFS
+        In all the 4 directions, check if path is not yet found, if the next step is within limits,
+        is it the same color we are looking for and if it is still unvisited*/
 
         //left
         if(!util.pathExists && currentCol-1>=0 && charGraph[currentRow][currentCol-1]==util.colorLetter
@@ -116,7 +116,7 @@ public class ConnectingDots {
             //returned from recursion. Continue with the next direction
         }
 
-        /*since you are going back the path, set [currentRow][currentCol] as unvisited, , and decrement the cycleLength,so that in the same recursion stack,
+        /**since you are going back the path, set [currentRow][currentCol] as unvisited, , and decrement the cycleLength,so that in the same recursion stack,
         the current row and column can be arrived at from a different path*/
         util.visited[currentRow][currentCol]=0;
         util.cycleLength-=1;

@@ -19,7 +19,7 @@ public class PreOrderTravWithoutRecursion {
 
  public int[] preorderTraversal1(TreeNodePre A) {
 
-  /*Push root into stack, and print it. Update current to left,
+  /**Push root into stack, and print it. Update current to left,
    Outer loop condition: curr is not null.
    Keep pushing left children down the stack and keep printing them, till there are none.
    Then pop from the stack, and push its right child. If there is no right child, keep popping till the
@@ -91,15 +91,15 @@ public class PreOrderTravWithoutRecursion {
 
  public static void main(String[] args) {
   TreeNodePre root=new TreeNodePre(1);
-  root.left = new TreeNodePre(2);
-  root.right = new TreeNodePre(3);
-  root.left.left=new TreeNodePre(4);
-  root.left.left.right=new TreeNodePre(7);
-  root.left.right=new TreeNodePre(5);
-  root.left.right.left=new TreeNodePre(8);
-  root.right.left=new TreeNodePre(6);
-  root.right.left.left=new TreeNodePre(9);
-  root.right.left.right=new TreeNodePre(10);
+//  root.left = new TreeNodePre(2);
+//  root.right = new TreeNodePre(3);
+//  root.left.left=new TreeNodePre(4);
+//  root.left.left.right=new TreeNodePre(7);
+//  root.left.right=new TreeNodePre(5);
+//  root.left.right.left=new TreeNodePre(8);
+//  root.right.left=new TreeNodePre(6);
+//  root.right.left.left=new TreeNodePre(9);
+//  root.right.left.right=new TreeNodePre(10);
 
   //int[] result=new PreOrderTravWithoutRecursion().preorderTraversal1(root);
   int[] result=new PreOrderTravWithoutRecursion().preorderTraversal1(root);

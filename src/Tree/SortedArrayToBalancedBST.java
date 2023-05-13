@@ -1,6 +1,5 @@
 package Tree;
 
-import java.util.ArrayList;
 
 class TreeNodeSortedArrayToBalanced {
     int val;
@@ -15,7 +14,7 @@ class TreeNodeSortedArrayToBalanced {
 
 
 public class SortedArrayToBalancedBST {
-    /*Note that this is a sorted array. So its middle element(or one of the 2 in case of even #nodes) will be the root of the tree.
+    /**Note that this is a sorted array. So its middle element(or one of the 2 in case of even #nodes) will be the root of the tree.
      * Now, split it into left half and right half, leaving out the index in the middle. Those will be the left and right subtrees.
      * Recursively call them, and assign them to (root.left) and (root.right). Return root. Do this recursively, meaning within each subtree,
      * find the middle, assign it to the root, and then call the left and right halves of arrayList and assign them to its left and right.

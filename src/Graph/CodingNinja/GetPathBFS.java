@@ -9,9 +9,9 @@ import java.util.Scanner;
 //https://classroom.codingninjas.com/app/classroom/me/567/content/10259/offering/79338/problem/1696
 public class GetPathBFS {
     public static void main(String[] args) throws NumberFormatException, IOException {
-        /*Exactly same as BFS. When the current vertex is v2, break the loop. Also keep a track of the path.
+        /**Exactly same as BFS. When the current vertex is v2, break the loop. Also keep a track of the path.
         Else return ""*/
-        /*IMP: How does it ensure that the shortest path is returned?  Say for v1=0 and v2=4, we can go either by 0->4, or by 0->2->4. But since
+        /**IMP: How does it ensure that the shortest path is returned?  Say for v1=0 and v2=4, we can go either by 0->4, or by 0->2->4. But since
         * we will mark 4 as visited and also input it in the hm when traversing the edge 0->4, when visiting vertex 2,vertices 0 and 4 will already be
         * marked as visited, so we won't even enter it in the hm. As the hm is used to return the shortest path, so it automatically takes care of this. */
 

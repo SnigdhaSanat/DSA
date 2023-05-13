@@ -30,7 +30,7 @@ class NodeRight{
 
 
 public ArrayList<Integer> solve(TreeNodeRightView A) {
-    /*Rightmost node of each level is the right view for that level.
+    /**Rightmost node of each level is the right view for that level.
     Traverse each horizontal level. Each iteration will traverse 1 level, which will be directed by the currLevel.
     As a level ends, put the last node of that level into the res.*/
 

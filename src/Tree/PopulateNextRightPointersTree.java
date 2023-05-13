@@ -16,11 +16,11 @@ import java.util.Queue;
   }//TreeLinkNode
 
 
-/*Question requirement: You may only use constant extra space, so recursion can't be used*/
+/**Question requirement: You may only use constant extra space, so recursion can't be used*/
 public class PopulateNextRightPointersTree {
 
 public void connect(TreeLinkNode root) {
-    /*The question demands that recursion should not be used. But since we have to visit every node we need something.How?
+    /**The question demands that recursion should not be used. But since we have to visit every node we need something.How?
      * Start from the root. Connect its left child to its right child, and right child to 1st cousin. Also keep a pointer to the first node at next level,
      * so that you can arrive at that when the current level ends. Within a level, next pointers created while at the previous level
      * will guide you. So you can traverse without recursion. Basically this is a level order traversal. */

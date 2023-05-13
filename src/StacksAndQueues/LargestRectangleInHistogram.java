@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class LargestRectangleInHistogram {
     public int largestRectangleArea(int[] A) {
-    /*For each A[i], get the first INDEX(NOT ELEMENT) to its right and to its left, whose A[j] is lesser than A[i].
+    /**For each A[i], get the first INDEX(NOT ELEMENT) to its right and to its left, whose A[j] is lesser than A[i].
     For A[i]'s height, the rectangle will be limited by these 2 boundaries. The difference between the 2 will give you the
     base, and A[i] will be the height of the rectangle. Repeat the same for each A[i], and return the max*/
 
@@ -33,7 +33,7 @@ public class LargestRectangleInHistogram {
         Stack<Integer> eltR=new Stack<Integer>();
 
         for(int i=0;i<N;i++){
-            while(!idxR.isEmpty() && A[i]<eltR.peek()){
+            while(!idxR.isEmpty() && eltR.peek()>A[i]){
                 right[idxR.peek()]=i;
                 idxR.pop();
                 eltR.pop();
@@ -41,6 +41,7 @@ public class LargestRectangleInHistogram {
             idxR.push(i);
             eltR.push(A[i]);
         }//for
+
         //diff on the right, excluding i
         for(int i=0;i<N;i++){
             rightDiff[i]=right[i]-i-1;
@@ -51,7 +52,7 @@ public class LargestRectangleInHistogram {
         Stack<Integer> eltL=new Stack<Integer>();
 
         for(int i=N-1;i>=0;i--){
-            while(!idxL.isEmpty() && A[i]<eltL.peek()){
+            while(!idxL.isEmpty() && eltL.peek()>A[i]){
                 left[idxL.peek()]=i;
                 idxL.pop();
                 eltL.pop();
@@ -59,12 +60,13 @@ public class LargestRectangleInHistogram {
             idxL.push(i);
             eltL.push(A[i]);
         }//for
+
         //diff on the left, excluding i
         for(int i=0;i<N;i++){
             leftDiff[i]=i-left[i]-1;
         }
 
-//calculating the  reactangle areas for each i, and the max
+//calculating the  rectangle areas for each i, and the max
         int max=Integer.MIN_VALUE;
         for(int i=0;i<N;i++){
             //+1 to include i

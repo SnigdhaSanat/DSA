@@ -15,11 +15,11 @@ class TreeNodeCousins {
     }
 }//TreeNodeCousins
 
-/*Question requirement: 1) Siblings should not be considered as cousins. 2) Try to do it in single traversal. 3) Order DOES NOT matter in the output.*/
+/**Question requirement: 1) Siblings should not be considered as cousins. 2) Try to do it in single traversal. 3) Order DOES NOT matter in the output.*/
 
 public class CousinsInBinaryTree {
     //Two nodes of a binary tree are cousins if they have the same depth with different parents.
-    /*Insert all the nodes of the tree into a hashmap, with key as the level.
+    /**Insert all the nodes of the tree into a hashmap, with key as the level.
     * Take note of node B and its sibling, and their level. For that level, output all the nodes, except B and its sibling */
 
     class NodeUtility{

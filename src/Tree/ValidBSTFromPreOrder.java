@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class ValidBSTFromPreOrder {
     public int solve(int[] A) {
-        /*How do we traverse pre order? Root->Left subtree-> Right subtree. Note that left subtree is traversed first.
+        /**How do we traverse pre order? Root->Left subtree-> Right subtree. Note that left subtree is traversed first.
         So in an array of elements, if current element is less than the prev element, append it as the left child of the previous element(push
         it to the stack).This is why the stack should be of decreasing order. As you push, you traverse along the chain of left children.
 
@@ -27,12 +27,13 @@ public class ValidBSTFromPreOrder {
         for(int i=0;i<n;i++){
             int elem=A[i];
 
-/*IMP: If we are pushing into the stack, root is the parent of the biggest(top) element of the current left chain, which has
+/**IMP: If we are pushing into the stack, root is the parent of the biggest(top) element of the current left chain, which has
  the biggest element as the right child. So we are in the right subtree
 of root. Also, root updates only when we find a bigger element, in which case we travel up the left chain to find the correct root and append
 the element as its right child. Then again, for the rest of the elements, we create a left chain from that right child. So at any point,
 root is either the parent of the top element of the left chain, if we are pushing, or if we are popping, it is the parent of the current element,
 where the element is its right child. So in both of the cases, as we are in the right subtree, the elem has to be ideally > root. */
+
             if(elem<root){
                 res=0;
                 return res;

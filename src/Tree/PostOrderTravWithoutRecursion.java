@@ -15,9 +15,9 @@ class TreeNodePost {
     }//ctor
 }//TreeNodePost
 public class PostOrderTravWithoutRecursion {
-    public int[] postorderTraversal(TreeNodePost A) {
+    public int[] postOrderTraversal(TreeNodePost A) {
 
-  /*The "CLEANER" solution used for pre order will not work here, as that solution printed the root of every
+  /**The "CLEANER" solution used for pre order will not work here, as that solution printed the root of every
   subtree whenever that was reached. That is what pre order requires, but cannot be done in post order. Tweak the solution
   which I had originally submitted for pre order. Tweak is that instead of printing during push, print during pop.
   This was also done in inorder without recursion. The difference with inorder here is that, while pushing an element's
@@ -76,7 +76,7 @@ public class PostOrderTravWithoutRecursion {
         root.right.left.left=new TreeNodePost(9);
         root.right.left.right=new TreeNodePost(10);
 
-        int[] result=new PostOrderTravWithoutRecursion().postorderTraversal(root);
+        int[] result=new PostOrderTravWithoutRecursion().postOrderTraversal(root);
         for(int i=0;i<result.length;i++){
             System.out.println(result[i]);
         }

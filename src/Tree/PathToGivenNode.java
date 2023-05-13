@@ -20,7 +20,7 @@ public class PathToGivenNode {
         ArrayList<Integer> trail;
     }
 public int[] solve(TreeNodePath A, int B) {
-    /*Recursively check for the value. At any level,if root is null, return false.
+    /**Recursively check for the value. At any level,if root is null, return false.
     If it is the value, add that value in the global arraylist and return true.
     * Else return true or false based on left subtree OR right subtree.
     If any subtree returns true, add current root to the trail

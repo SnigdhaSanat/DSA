@@ -9,6 +9,7 @@ class Util {
 }
 
 //https://classroom.codingninjas.com/app/classroom/me/567/content/10259/offering/79340/problem/1697
+/**Why don't we un-visit vertices as we return? We keep a visited as such because we don't want to travel that again if it was already travelled as part of the current connected component. We un-visit in case of problems like CodingNinjas or ConnectingDots because there, if a vertex did not yield a result in a past iteration, it might still yield it in the current iteration, as its position in the word CODINGNINJA or in the colored sequence of dots matter, which might be different than that in the past iteration.*/
 
 public class IsConnected {
     public static void main(String[] args) throws NumberFormatException, IOException {
@@ -34,6 +35,8 @@ public class IsConnected {
         utility.visited=new int[v];
         utility.visitedCount=0;
 
+        utility.visited[0]=1;
+        utility.visitedCount+=1;
         DFS(utility,0,v,adjMat);
 
         if(utility.visitedCount==v){

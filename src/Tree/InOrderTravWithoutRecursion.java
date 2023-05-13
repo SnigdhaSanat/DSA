@@ -16,7 +16,7 @@ class TreeNodeIn {
 public class InOrderTravWithoutRecursion {
     public int[] inorderTraversal(TreeNodeIn A) {
 
-  /*The "CLEANER" solution used for pre order will not work here, as that solution printed the root of every
+  /**The "CLEANER" solution used for pre order will not work here, as that solution printed the root of every
   subtree whenever that was reached. That is what pre order requires, but cannot be done in inorder. Tweak the solution
   which I had originally submitted for pre order. Tweak is that instead of printing during push, print during pop.
 
@@ -33,7 +33,7 @@ public class InOrderTravWithoutRecursion {
         //al.add(curr.val);
         curr=curr.left;
 
-/*When curr is null after an iteration, it means that the entire stack has been popped yet there is no RC. So it also implies that stack is also empty.
+/**When curr is null after an iteration, it means that the entire stack has been popped yet there is no RC. So it also implies that stack is also empty.
 * So curr!=null condition is sufficient. But where it fails is if the tree has only one node. There, with curr=curr.left as empty, we still need to enter the outer
 * while loop, since the element is yet to be popped(and printed). Hence the OR condition of !stk.isEmpty() is used. In pre-order,
 * this is not required as the element is printed during push, not pop.*/
@@ -64,8 +64,8 @@ public class InOrderTravWithoutRecursion {
     }//inorderTraversal
 
     public static void main(String[] args) {
-        TreeNodeIn root=new TreeNodeIn(1);
-//        root.left = new TreeNodeIn(2);
+        TreeNodeIn root=new TreeNodeIn(3);
+        //root.left = new TreeNodeIn(1);
 //        root.right = new TreeNodeIn(3);
 //        root.left.left=new TreeNodeIn(4);
 //        root.left.left.right=new TreeNodeIn(7);

@@ -12,7 +12,7 @@ class TreeNodeLCA {
 }//TreeNodeLCA
 
 public class LeastCommonAncestor {
-/*Question requirement:1) Duplicates don't exist. 2) One or both of the nodes may not exist 3) Parent pointer cannot be used, but
+/**Question requirement:1) Duplicates don't exist. 2) One or both of the nodes may not exist 3) Parent pointer cannot be used, but
 * other node members/functions can be added to node, or use a helper functions or extra memory */
 
     class Utility{
@@ -29,7 +29,7 @@ public int lca(TreeNodeLCA A, int B, int C) {
 }//lca
 
 boolean recurseLCA(TreeNodeLCA root, int B, int C,Utility utility){
-/*What if we find a node, but the other node exists in its left or right subtree? If we return from the node,
+/**What if we find a node, but the other node exists in its left or right subtree? If we return from the node,
 * we will miss the other one. So do a POST order traversal. */
     boolean left=false;
     boolean right=false;
@@ -46,14 +46,16 @@ boolean recurseLCA(TreeNodeLCA root, int B, int C,Utility utility){
     if(left && right){
         //if one is in the left and the other is in the right subtree, that is our result
         utility.value=root.val;
+        return true;
     }
 
     //The below 2 conditions are independent of each other.
     //First club them
     if((left|| right) && (root.val==B || root.val==C)){
-        //if root itself is one of the value and the other value is in one if its subtrees
+        //if root itself is one of the value and the other value is in one of its subtrees
         //update the utility
         utility.value=root.val;
+        return true;
     }
 
     if(left|| right){
@@ -69,6 +71,7 @@ boolean recurseLCA(TreeNodeLCA root, int B, int C,Utility utility){
         }
         return true;
     }
+
 
     return false;
 }//recurseLCA

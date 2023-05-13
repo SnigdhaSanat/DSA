@@ -20,6 +20,13 @@ public TreeNodeInvertBT invertTree(TreeNodeInvertBT A) {
 }//invertTree
 
 TreeNodeInvertBT recursivelyInvert(TreeNodeInvertBT root){
+    //Exchange can be done either before or after recursing
+    //Exchange left and right children at the root.
+    // This covers the case of both being non-nulls, both being null, or only of them being null
+    TreeNodeInvertBT temp=root.left;
+    root.left=root.right;
+    root.right=temp;
+
     //recurse left and right
     if(root.left!=null){
         recursivelyInvert(root.left);
@@ -29,11 +36,11 @@ TreeNodeInvertBT recursivelyInvert(TreeNodeInvertBT root){
         recursivelyInvert(root.right);
     }
 
-    //Exchange left and right children at the root.
-    // This covers the case of both being non-nulls, both being null, or only of them being null
-    TreeNodeInvertBT temp=root.left;
-    root.left=root.right;
-    root.right=temp;
+//    //Exchange left and right children at the root.
+//    // This covers the case of both being non-nulls, both being null, or only of them being null
+//    TreeNodeInvertBT temp=root.left;
+//    root.left=root.right;
+//    root.right=temp;
 
     return  root;
 }//recursivelyInvert

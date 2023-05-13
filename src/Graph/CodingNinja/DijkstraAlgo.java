@@ -3,10 +3,10 @@ package Graph.CodingNinja;
 import java.util.*;
 
 //https://classroom.codingninjas.com/app/classroom/me/567/content/10312/offering/79844/problem/1725
-/*At each step, select the vertex u having the lowest distance AND un-traversed, and then modify(relax) the edges from it, if cost[u]+distance(u,v)<cost[v ]. But
+/**At each step, select the vertex u having the lowest distance AND un-traversed, and then modify(relax) the edges from it, if cost[u]+distance(u,v)<cost[v ]. But
 * in case of a graph having negative edge(s), this condition of not traversing already selected vertices gives wrong answer*/
 
-/*There is another algo called Bellman Ford(https://www.youtube.com/watch?v=FtN3BYH2Zes), where you traverse the edges rather than the vertices.
+/**There is another algo called Bellman Ford(https://www.youtube.com/watch?v=FtN3BYH2Zes), where you traverse the edges rather than the vertices.
 This is a DP problem and not a greedy like Dijkstra. There you will travel all the e edges, either v-1 number of times, or till the modification
   of edges stops completely at a pass, whichever is smaller. However, if there is a cycle AND its total weight is negative, then this fails. Reason being in
   a cycle whose total weight is negative, the total cost will keep reducing infinitely with every round. So Bellman Ford algo in this case will not freeze even after
@@ -50,7 +50,6 @@ public class DijkstraAlgo {
                     minVertex=i;
                 }
             }//inner for
-
 
             //update its visited status
             visited[minVertex]=1;

@@ -2,34 +2,34 @@ package Strings;
 
 public class LengthOfLastWord {
 	public int lengthOfLastWord(final String A) {
-    /**Iterate over the characters. For each character, append to sb. Once a space is encountered update the last word,
-    and clear the sb. At the end of the loop, again, update thelast word. This is to take care of single Worded Strings and also the last word */
-		int n=A.length();
-		StringBuilder sb=new StringBuilder();
-		String lastWord="";
+/** Start from the end of the string. Pass through the spaces if any, until you encounter the first character, if any. Star  counting. Continue tll you encounter a space, of the beginning of the string
+* */
 
-		for(int i=0;i<n;i++){
-			char ch=A.charAt(i);
-			if(ch==' '){
-				//if space
-				if(sb.length()>0){
-					//append only for the 1st space character
-					lastWord=sb.toString();
-					sb.setLength(0);
-				}
+	int n=A.length();
 
-			}
-			else{
-				sb.append(ch);
-			}
-		}//for
+	int len=0;
 
-		if(sb.length()>0) {
-			//append only for the 1st space character
-			//if there is only 1 word
-			lastWord=sb.toString();
-		}
-		return lastWord.length();
+	int i=n-1;
+
+
+	//find the last non-space char
+	while( i>=0 && A.charAt(i)==' ' ){
+		i-=1;
+	}
+
+	//if no char found at all
+	if(i<0){
+	return 0;
+	}
+
+	//non-space char found. Start counting till  you encounter a space, of the beginning of the string
+	while(i>=0 && A.charAt(i)!=' '){
+		len+=1;
+		i-=1;
+	}//while
+
+		return len;
+
 	}//lengthOfLastWord
 
 	public static void main(String[] args) {

@@ -16,7 +16,7 @@ class TreeNodeFromInAndPost {
 }//TreeNodeFromInAndPost
 
 public class BTFromInorderAndPostOrder {
-/*This is almost like the "SortedArrayToBalancedBST" question, where you create a balanced BST out of the
+/**This is almost like the "SortedArrayToBalancedBST" question, where you create a balanced BST out of the
 given inorder traversal of BST. Except that here it need not be balanced, and root is directed by the given pre order.
 
 Note that there is a POST(not pre) order list and an inorder list. How do you find the root element? The post order list has roots
@@ -32,7 +32,7 @@ With the help of the hashmap, get its index in the inorder list. So you have the
  find the root with the help of the process explained above, assign it to the root, and then call the RIGHT AND THEN LEFT halves of
  arrayList and assign them to its right and left. Return root from each level.
 
- To understand wht we proceed in decreasing order, AND right to left, draw out a tree and do a dry run*/
+ To understand why we proceed in decreasing order, AND right to left, draw out a tree and do a dry run*/
 
 class Utility{
     HashMap<Integer,Integer> hm;

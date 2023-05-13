@@ -27,6 +27,7 @@ public class AllConnectedComponents {
             ArrayList<Integer> al=new ArrayList<Integer>();
 
             int startingVertex=-1;
+
             //find the first unvisited vertex of the next or the first connected component
             for(int i=0;i<v;i++){
                 if(visited[i]==0){

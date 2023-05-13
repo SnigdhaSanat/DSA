@@ -22,7 +22,7 @@ public class RecoverBST {
         ArrayList<Integer> wrongValues;
     }
 
-    /*Idea is to traverse the binary tree, at each point keeping track of the previous element. At the point where
+    /**Idea is to traverse the binary tree, at each point keeping track of the previous element. At the point where
     the prev and curr(root) node is out of order, add that to an arrayList. Finally return from that arrayList. Also, as
     demanded by the question, this takes a constant space, of prevVal(1) and wrongValues(2 or 4) of the class NodeVal*/
 
@@ -33,7 +33,7 @@ public class RecoverBST {
 
         checkWrongElements(A,nodeVal);
 
-        /*The swapped nodes can either be adjacent or non adjacent. Eg: For, 1,2,3,4,5,6,7,8
+        /**The swapped nodes can either be adjacent or non adjacent. Eg: For, 1,2,3,4,5,6,7,8
         * Non adjacent swapping: 1,2,6,4,5,3,7,8. Here, 6 and 4, and then 5 and 3 are out of order. So if the arraylist is of size 4, return 4th and 1st element.
         * Adjacent swapping: 1,2,4,3,5,6,7,8. Here 4 and 3 are out of order. So if arraylist is of size 2, return 1st and 2nd  */
 

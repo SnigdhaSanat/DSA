@@ -14,9 +14,8 @@ class TreeNodeRemove {
 
 public class RemoveHalfNodes {
 public TreeNodeRemove solve(TreeNodeRemove A) {
-    /*Recurse through the tree. If leaf node(no children), leave as it is
-    * If only one side is null, take the only child, and make it right child of its grand parent,
-    * if the half node was a right child, else left*/
+    /**Recurse through the tree. If leaf node(no children), leave as it is
+    * If only one side is null, take the only child, and make it right child of its grand parent, if the half node was a right child, else left*/
     TreeNodeRemove root=removeHalf(A);
     return root;
 }//solve

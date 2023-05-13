@@ -36,7 +36,7 @@ public class RedundantBraces {
     }//braces
 
     public static void main(String[] args) {
-        String A="(a+(a+b))";
+        String A="((a+b))";
         int res=new RedundantBraces().braces(A);
         System.out.println(res);
     }

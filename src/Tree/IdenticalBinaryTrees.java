@@ -36,45 +36,42 @@ boolean checkIfEqual(TreeNodeIdentical root1, TreeNodeIdentical root2){
 /*Traverse both in INORDER. Why? It logs the exact positions, whether it is an RC or LC. Travel
 BOTH in L N R(normal). At every point, check if current roots are same */
 
-    //Either both root1 and root2 are null, or both non-null
+//Either both root1 and root2 are null, or both non-null
 
-    if(root1==null && root2==null)
-    {
+//If both roots are null, return true
+    if(root1==null && root2==null){
         return true;
     }
+    //if only one of them is null, return false
+    else if ((root1!=null && root2==null)||(root1==null && root2!=null)) {
+        return false;
+    }
 
-
-    if(root1.val!=root2.val){
+    else if(root1.val!=root2.val){
         //if root values don't match, return false
         return false;
     }
 
-    //Now the children
-    if(root1.left!=null && root2.left==null ||root1.left==null && root2.left!=null ||
-            root1.right!=null && root2.right==null ||root1.right==null && root2.right!=null){
-        return false;
-    }
+    //At this point, both root1 and root2 are non null and have the same value
 
     boolean checkLeft=true;
     boolean checkRight=true;
 
-
+    //BOTH left and right are non-null, or both null
     checkLeft= checkIfEqual(root1.left, root2.left);
-
     if(!checkLeft){
         return false;
     }
 
-
+    //BOTH left and right are non-null, or both null
     checkRight=checkIfEqual(root1.right,root2.right);
-
-
     if(!checkRight){
         return false;
     }
 
+    //for other conditions return true
     return true;
-}//checkIfMirror
+}//checkIfEqual
 
     public static void main(String[] args) {
         TreeNodeIdentical root1=new TreeNodeIdentical(1);
@@ -83,7 +80,7 @@ BOTH in L N R(normal). At every point, check if current roots are same */
 
         TreeNodeIdentical root2=new TreeNodeIdentical(1);
         root2.left = new TreeNodeIdentical(2);
-        root2.right = new TreeNodeIdentical(5);
+        root2.right = new TreeNodeIdentical(3);
 
         int res=new IdenticalBinaryTrees().isSameTree(root1,root2);
         System.out.println(res);

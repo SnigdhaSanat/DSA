@@ -14,7 +14,8 @@ class Utility{
 
 public class GetPathDFS {
     public static void main(String[] args) throws NumberFormatException, IOException {
-        /*IMP: As it is DFS, which means it traverses "greedily", it might NOT return the shortest path*/
+/**IMP: As it is DFS, which means it traverses "greedily", it might NOT return the shortest path. Also, why don't we un-visit vertices as we pop? We pop because we need the path to be the exact one, which means the start to end sequence matters. But we keep a visited as such because we don't want to travel that again if that did not yield a result the last time it was visited. If it did, we would have broken the loop anyway. We un-visit in case of problems like CodingNinjas or ConnectingDots because there, if a vertex did not yield a result in a past iteration, it might still yield it in the current iteration, as its position in the word CODINGNINJA or in the colored sequence of dots matter, which might be different in the current iteration. But in this problem, we are concerned only about the destination rather than the vertices in its path or their placements.*/
+
         Scanner sc=new Scanner(System.in);
         int v=4;//sc.nextInt();
         int e=4;//sc.nextInt();
@@ -93,7 +94,6 @@ public class GetPathDFS {
                 //recurse, with j as the starting vertex
                 DFSGetPath(adjMat,v,j,end,util);
 
-                int test=1;
                 //returned from recursion. Continue with the next lateral iteration
             }//if
         }//for

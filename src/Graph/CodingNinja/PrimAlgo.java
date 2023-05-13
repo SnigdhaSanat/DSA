@@ -3,8 +3,8 @@ package Graph.CodingNinja;
 import java.util.*;
 
 //https://classroom.codingninjas.com/app/classroom/me/567/content/10312/offering/79839/problem/1724
-
-/*Each time find the minimum weight vertex, NOT edge, and update its adjacent weights*/
+//https://www.youtube.com/watch?v=4ZlRH0eK-qQ
+/**Each time find the minimum weight vertex, NOT edge, and update its adjacent weights*/
 class PrimEdge {
     int v1;
     int v2;
@@ -57,7 +57,7 @@ public class PrimAlgo {
             //check its unvisited neighbours, in that row of the matrix
             for(int j=0;j<v;j++){
                 //if neighbour AND unvisited, AND provides a lesser weight than its previous
-                /*Unlike Dijkstra, where weights[j] is updated to weights[minVertex]+adjMat[minVertex][j] conditionally, here weights[minVertex] is not counted.
+                /**Unlike Dijkstra, where weights[j] is updated to weights[minVertex]+adjMat[minVertex][j] conditionally, here weights[minVertex] is not counted.
                 * Meaning at each point, min vertex is the source vertex. This is because we are looking for an MST here, not a path from a source vertex. */
                 if(adjMat[minVertex][j]!=0 && visited[j]==0 && adjMat[minVertex][j]<weights[j]){
                     //update parent and weight
@@ -94,7 +94,6 @@ ArrayList<PrimEdge> primList=new ArrayList<PrimEdge>();
         int v = 4;//sc.nextInt();
         int e = 4;//sc.nextInt();
 
-
 //As according to the question both v and e are >=2, no need to handle for 0 count cases
 
         //create the adj matrix
@@ -114,6 +113,7 @@ ArrayList<PrimEdge> primList=new ArrayList<PrimEdge>();
         }//for
 
         ArrayList<PrimEdge> res=Prim(adj,v);
+
         for(int i=0;i<res.size();i++){
             PrimEdge edge=res.get(i);
             System.out.println(edge.v1+" "+edge.v2+" "+edge.weight);

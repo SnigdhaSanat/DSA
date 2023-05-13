@@ -27,7 +27,7 @@ class NodeZigZag{
 }//NodeZigZag
 
     public ArrayList<Integer> solve(TreeNodeReverseLevel A) {
-        /*Traverse each horizontal level. Each iteration will traverse 1 level, which will be directed by the currLevel.
+        /**Traverse each horizontal level. Each iteration will traverse 1 level, which will be directed by the currLevel.
          * As a level progresses, put all the nodes of that level into the currLevelList. After the level ends(after each inner while),
          * put that currLevelList into res.*/
 

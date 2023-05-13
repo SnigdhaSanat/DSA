@@ -15,7 +15,7 @@ class TreeNodeFlatten {
 public class FlattenBTToLinkedList {
 /*Question requirement: flatten it to a linked list IN-PLACE.*/
 
-/*Think of the smallest example. How would you convert a binary tree of root 1, LC as 2 and RC as 3 into a flat linkedList?
+/**Think of the smallest example. How would you convert a binary tree of root 1, LC as 2 and RC as 3 into a flat linkedList?
 * Move RC to temp, LC to RC and set LC as null. Then go to the lowest rightmost child of root, and assign temp into its
 * lowest RC. Recurse this. */
     public TreeNodeFlatten flatten(TreeNodeFlatten a) {
@@ -34,6 +34,10 @@ public class FlattenBTToLinkedList {
             recurseFlatten(root.left);
         }
 
+        if(root.right!=null){
+            recurseFlatten(root.right);
+        }
+
         //place LC into RC, and original RC into temp. IMP: Set LC as null.
         TreeNodeFlatten temp=root.right;
         root.right=root.left;
@@ -47,10 +51,6 @@ public class FlattenBTToLinkedList {
             curr=curr.right;
         }
         prev.right=temp;
-
-        if(root.right!=null){
-            recurseFlatten(root.right);
-        }
     }//recurseFlatten
 
     public static void main(String[] args) {

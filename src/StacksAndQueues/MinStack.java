@@ -13,14 +13,14 @@ public  class MinStack {
     }
 
     //Requirement: Constant time
-    /*Basically, minStack will be a stack tapering towards the top. A new element will be pushed there only if it
+    /**Basically, minStack will be a stack tapering towards the top. A new element will be pushed there only if it
     is less than the minStack's top, or if minStack is empty. So, its top will always be the min element of the original
     stack. When popped, if the popped element of the original array is the min element, then it is popped from the minStack
     too. So min element is popped. Else, minStack is not popped.
 
     IMP: Take the case of 7,5,8,3,10. Min stack, from the bottom, will be: 7,5,3. Does not having 8 and 10 in the minStack
     makes a difference? No. Because at no point of time, they will be min elements, and hence they are not required in
-    the minStack. After all, minStack is required only to accomplish getMin() in constant time. Rest of teh operations are constant anyway.
+    the minStack. After all, minStack is required only to accomplish getMin() in constant time. Rest of the operations are constant anyway.
     So alter the minStack conservatively, while the stk(original stack) is changed always*/
 
     public void push(int x, Util util) {
@@ -90,5 +90,5 @@ public  class MinStack {
 
         res=new MinStack().top(util);
         System.out.println("Top:"+res);
-    }
+    }//main
 }//MinStack
