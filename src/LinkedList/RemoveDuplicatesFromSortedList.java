@@ -12,7 +12,6 @@ public class RemoveDuplicatesFromSortedList {
 	}
 
 	public ListNode deleteDuplicates(ListNode A) {
-		ListNode res=A;
 		ListNode curr=A;
 		int currVal=curr.val;
 		ListNode nxt=A.next;
@@ -24,12 +23,13 @@ while (nxt!=null){
 		nxt=nxt.next;
 	}//inner while
 
-	if(nxt!=null){
-		currVal=nxt.val;
-	}
 	curr.next=nxt;
 
 	curr=nxt;
+	if(nxt!=null){
+		currVal=nxt.val;
+	}
+
 	if(nxt!=null){
 		nxt=nxt.next;
 	}

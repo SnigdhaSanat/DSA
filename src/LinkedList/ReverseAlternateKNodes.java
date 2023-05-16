@@ -27,6 +27,7 @@ public class ReverseAlternateKNodes {
 		ListNode curr=A;
 		ListNode prev=null;
 		boolean shouldReverse=true;
+
 		while(curr!=null){
 			int count=0;
 			ListNode currHead=null;

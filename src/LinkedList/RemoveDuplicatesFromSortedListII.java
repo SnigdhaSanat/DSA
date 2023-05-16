@@ -12,14 +12,14 @@ public class RemoveDuplicatesFromSortedListII {
 	}
 
 	public ListNode deleteDuplicates(ListNode A) {
-		/*This solves it in constant space */
+		/**This solves it in constant space */
 
 		if(A.next==null){
 			//if it contains only 1 element
 			return A;
 		}
 
-		/*Create a superHead, whose next points to the first element of the result list. */
+		/**Create a superHead, whose next points to the first element of the result list. */
 		ListNode superHead=new ListNode(-1);
 		superHead.next=A;
 

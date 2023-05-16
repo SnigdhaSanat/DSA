@@ -12,7 +12,7 @@ public class MergeTwoSortedLists {
 	}
 
 	public ListNode mergeTwoLists(ListNode head1, ListNode head2) {
-		/*Here, we DO NOT use any extra space. we just modify the pointers*/
+		/**Here, we DO NOT use any extra space. we just modify the pointers*/
 
 		ListNode head=null;
 		//initialize the head, whichever of the 2 lists has the smaller head value

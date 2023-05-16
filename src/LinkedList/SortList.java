@@ -62,6 +62,7 @@ like merge sort in arrays */
 
 		//now iterate
 		ListNode curr=head;//to keep track of the merged list
+
 		while(head1!=null && head2!=null){
 			//head1 and head2 belong to the original list
 			//NOTE that while is an AND condition, not OR condition

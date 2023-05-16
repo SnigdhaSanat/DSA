@@ -11,10 +11,10 @@ public class SwapListNodesInPairs {
 		}
 	}
 	public ListNode swapPairs(ListNode A) {
-        /*Question requirement: Use constant space.
+        /**Question requirement: Use constant space.
         You may not modify the values in the list; only nodes themselves can be changed.*/
 
-        /* This is a special case of K=2. also, in this case, list size is divisible by K. But this solution takes
+        /** This is a special case of K=2. also, in this case, list size is divisible by K. But this solution takes
         care of the case even when list size  is not divisible by K*/
 
 		if(A==null || A.next==null)
@@ -77,6 +77,7 @@ public class SwapListNodesInPairs {
 
 		while(curr!=null){
 			curr.next=prev;
+			
 			prev=curr;
 			curr=nxt;
 			if(nxt!=null){

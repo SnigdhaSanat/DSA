@@ -77,14 +77,16 @@ public class ReorderList {
 			if (next1 != null) {
 				next1 = next1.next;
 			}
-			{
-				if (curr2 != null) {
-					curr2 = next2;
-				}
-				if (next2 != null) {
-					next2 = next2.next;
-				}
+
+
+			if (curr2 != null) {
+				curr2 = next2;
 			}
+
+			if (next2 != null) {
+				next2 = next2.next;
+			}
+
 		}
 		return head1;
 	}//merge

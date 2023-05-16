@@ -40,7 +40,9 @@ public class SortBinaryLinkedList {
 			}
 			else{
 				currNode.val=1;
-				oneCount-=1;
+
+				//This is optional
+				//oneCount-=1;
 			}
 			currNode=currNode.next;
 		}//while

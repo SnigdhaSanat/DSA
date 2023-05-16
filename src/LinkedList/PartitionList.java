@@ -29,7 +29,7 @@ public class PartitionList {
 					ListNode node=new ListNode(currNode.val);
 					currBefore=node;
 					firstBeforeNode=node;
-				}//iiner if
+				}//inner if
 				else{
 					ListNode node=new ListNode(currNode.val);
 					currBefore.next=node;
