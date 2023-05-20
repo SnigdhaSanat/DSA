@@ -4,8 +4,8 @@ import java.util.*;
 
 
 public class LRUCache {
-    //dq stores keys, NOT values of cache. Maintains insertion order
-    // MOST recently used elements will be towards the rear, as insertion here happens at the back
+    /**dq stores keys, NOT values of cache. Maintains insertion order
+     MOST recently used elements will be towards the rear, as insertion here happens at the back*/
     Deque<Integer> dq;
 
     //stores the key value pairs in cache
@@ -26,7 +26,6 @@ public class LRUCache {
             int value=-1;
             //System.out.println(value);
             return  value;
-
         }
         else{
             int value=hm.get(key);
@@ -45,7 +44,7 @@ public class LRUCache {
     public void set(int key, int value) {
         if(hm.size()== cacheCapacity){
             if(hm.containsKey(key)){
-                //capacity hit, and key(maybe with a different value) is already present, so no need to remove
+                //capacity hit, and key(maybe with a different value) is already present, so no need to remove, just rearrange the dq
 
                 //move it to the rear(most recent) of the queue in dq.
                 dq.remove(key);
@@ -106,8 +105,7 @@ public class LRUCache {
     }//class
 
     public static void main(String[] args){
-        /* Input example:capacity = 2
-
+        /** Input example:capacity = 2
         set(1, 10)
         set(5, 12)
         get(5)        returns 12
@@ -116,15 +114,17 @@ public class LRUCache {
         set(6, 14)    this pushes out key = 5 as LRU is full.
         get(5)        returns -1
          */
+
         Input[] list=new Input[]{new Input("S" ,1,10),new Input("S" ,5,12),
                 new Input("G" ,5,-1),new Input("G" ,1,-1),
                 new Input("G" ,10,-1),new Input("S" ,6,14),
                 new Input("G" ,5,-1)
         };
+
         int cap=2;
-        int opCount=7;
         LRUCache lc=new LRUCache(cap);
 
+        int opCount=7;
         for(int i=0;i<opCount;i++){
             Input ip=list[i];
             if(ip.op=="G"){

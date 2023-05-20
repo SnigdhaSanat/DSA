@@ -77,7 +77,7 @@ public class SwapListNodesInPairs {
 
 		while(curr!=null){
 			curr.next=prev;
-			
+
 			prev=curr;
 			curr=nxt;
 			if(nxt!=null){
